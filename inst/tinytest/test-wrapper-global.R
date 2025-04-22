@@ -181,15 +181,15 @@ isresControl <- nloptr(
     algorithm = "NLOPT_GN_ISRES",
     maxeval = 2e4L,
     xtol_rel = 1e-6,
-    population = 60
+    pop.size = 60
   )
 )
 
 expect_silent(isres(
-  x0,
-  rbf,
-  lb,
-  ub,
+  x0 = x0,
+  fn = rbf,
+  lower = lb,
+  upper = ub,
   hin = hin,
   maxeval = 2e4L,
   xtol_rel = 1e-6,
@@ -198,10 +198,10 @@ expect_silent(isres(
 ))
 
 isresTest <- isres(
-  x0,
-  rbf,
-  lb,
-  ub,
+  x0 = x0,
+  fn = rbf,
+  lower = lb,
+  upper = ub,
   hin = hin,
   maxeval = 2e4L,
   xtol_rel = 1e-6,

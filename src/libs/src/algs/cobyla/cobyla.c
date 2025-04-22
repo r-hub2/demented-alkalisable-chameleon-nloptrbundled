@@ -410,7 +410,7 @@ nlopt_result cobyla(int n, int m, double *x, double *minf, double rhobeg, double
   }
 
   /* workspace allocation */
-  w = (double*) malloc(U((n*(3*n+2*m+11)+4*m+6)*10)*sizeof(*w));
+  w = (double*) malloc(U((n*(3*n+2*m+11)+4*m+6)*100)*sizeof(*w));
   if (w == NULL)
   {
 #ifndef NLOPT_R

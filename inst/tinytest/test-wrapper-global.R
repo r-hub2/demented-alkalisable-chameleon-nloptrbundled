@@ -181,7 +181,7 @@ isresControl <- nloptr(
     algorithm = "NLOPT_GN_ISRES",
     maxeval = 2e4L,
     xtol_rel = 1e-6,
-    pop.size = 60
+    population = 60
   )
 )
 

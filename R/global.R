@@ -143,6 +143,7 @@ stogo <- function(
 #' for all components.
 #' @param maxeval maximum number of function evaluations.
 #' @param pop.size population size.
+#' @param ranseed random seed for the random number generator.
 #' @param xtol_rel stopping criterion for relative change reached.
 #' @param nl.info logical; shall the original \acronym{NLopt} info be shown.
 #' @param deprecatedBehavior logical; if \code{TRUE} (default for now), the old
@@ -208,6 +209,7 @@ isres <- function(
   heq = NULL,
   maxeval = 10000,
   pop.size = 20 * (length(x0) + 1),
+  ranseed = NULL,
   xtol_rel = 1e-6,
   nl.info = FALSE,
   deprecatedBehavior = TRUE,
@@ -217,6 +219,9 @@ isres <- function(
   opts$maxeval <- maxeval
   opts$xtol_rel <- xtol_rel
   opts$population <- pop.size
+  if (!is.null(ranseed)) {
+    opts$ranseed <- as.integer(ranseed)
+  }
   opts$algorithm <- "NLOPT_GN_ISRES"
 
   fun <- match.fun(fn)
